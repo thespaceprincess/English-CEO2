@@ -1,4 +1,5 @@
 import React from "react";
+import { openPopupWidget } from "react-calendly";
 import "./tailwind.output.css";
 
 let names = [
@@ -42,6 +43,16 @@ function TileComponent(name: any): any {
  let color2 = colors[Math.floor(Math.random() * colors.length)];
  return (
   <li
+   onClick={e =>
+    openPopupWidget({
+     url: "https://calendly.com/theenglishceo/30min",
+     prefill: {
+      customAnswers: {
+       a1: name.name,
+      },
+     },
+    })
+   }
    className={`bg-gray-50 rounded-lg shadow-lg h-24 text-center table bg-gradient-to-r hover:from-${color}-200 to-${color2}-200 cursor-pointer`}
   >
    <span className="table-cell text-lg text-gray-700 hover:text-gray-900 font-bold align-middle pb-1 px-5">
