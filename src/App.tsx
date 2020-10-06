@@ -37,26 +37,44 @@ let names = [
  "English for Designers",
 ];
 
-function TileComponent(name: any): any {
- let colors = ["purple", "red", "green", "blue", "orange", "yellow", "teal", "indigo", "pink"];
- let color = colors[Math.floor(Math.random() * colors.length)];
- let color2 = colors[Math.floor(Math.random() * colors.length)];
+// hover:from-1-l
+// hover:to-1-r
+// hover:from-2-l
+// hover:to-2-r
+// hover:from-3-l
+// hover:to-3-r
+// hover:from-4-l
+// hover:to-4-r
+// hover:from-5-l
+// hover:to-5-r
+// hover:from-6-l
+// hover:to-6-r
+// hover:from-7-l
+// hover:to-7-r
+// hover:from-8-l
+// hover:to-8-r
+// hover:from-9-l
+// hover:to-9-r
+
+function TileComponent({ name, idx }: any): any {
+ let coloridx = (idx % 9) + 1;
+
  return (
   <li
-   onClick={e =>
+   onClick={_ =>
     openPopupWidget({
      url: "https://calendly.com/theenglishceo/30min",
      prefill: {
       customAnswers: {
-       a1: name.name,
+       a1: name,
       },
      },
     })
    }
-   className={`bg-gray-50 rounded-lg shadow-lg h-24 text-center table bg-gradient-to-r hover:from-${color}-200 to-${color2}-200 cursor-pointer`}
+   className={`bg-gray-50 rounded-lg shadow-lg h-24 text-center table bg-gradient-to-r hover:from-${coloridx}-l hover:to-${coloridx}-r cursor-pointer`}
   >
    <span className="table-cell text-lg text-gray-700 hover:text-gray-900 font-bold align-middle pb-1 px-5">
-    {name.name}
+    {name}
    </span>
   </li>
  );
@@ -69,8 +87,8 @@ function App() {
    <div className="flex">
     <div className="flex-1 max-w-4xl mx-auto p-10 py-20">
      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
-      {names.map(name => (
-       <TileComponent name={name} />
+      {names.map((name, idx) => (
+       <TileComponent name={name} idx={idx} />
       ))}
      </ul>
     </div>
