@@ -83,7 +83,12 @@ function TileComponent({ name, idx }: any): any {
 function App() {
  return (
   <div className="min-h-screen items-center bg-gray-100">
-   <div className="w-full text-center text-3xl pt-20 text-gray-600">Book a Trial Class</div>
+      <div className="w-full" >
+   <div className="inline-block p-20 text-left text-4xl text-gray-600">English CEO</div>
+   <div className="inline-block p-20 float-right text-2xl italic text-gray-600">Just do it.</div>
+   </div>
+   <div className="w-full text-center text-3xl text-gray-600">Book a Trial Class</div>
+  
    <div className="flex">
     <div className="flex-1 max-w-4xl mx-auto p-10 py-20">
      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
